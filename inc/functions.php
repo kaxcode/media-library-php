@@ -16,10 +16,14 @@ if ($category == null) {
 
   foreach ($catalog as $id => $item) {
     if (strtolower($category) == strtolower($item["category"])) {
-      $output[] = $id;
+      $sort = $item["title"];
+      $output[$id] = $sort;
     }
   }
 
-  return $output;
+
+  asort($output);
+
+  return array_keys($output);
 }
  ?>
